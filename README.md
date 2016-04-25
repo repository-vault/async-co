@@ -2,8 +2,10 @@ Control flow for co with aync.js (v2) signatures
 
 # API
 
+## eachLimit(arr, concurrency, *thunk)
+
 ```
-var eachLimit   = require('async-co/eachLimit');
+var eachLimit    = require('async-co/eachLimit');
 
 co(function *(){
 
@@ -18,3 +20,5 @@ co(function *(){
 
 
 ```
+
+## eachSeries(arr, *thunk) // = eachLimit concurrency = 1
