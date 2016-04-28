@@ -3,7 +3,7 @@
 var eachLimit = require('./eachLimit');
 
   //what did you expect..
-module.exports = function *(series, thunk){
-  yield eachLimit(series, 1, thunk);
+module.exports = function (series, thunk){
+  return eachLimit(series, 1, thunk);
 };
 
