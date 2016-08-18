@@ -1,6 +1,6 @@
 {
   "name": "async-co",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Control flow for co with aync.js (v2) signatures",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,7 @@
   "keywords": [],
   "author": "Francois Leurent <131.js@cloudyks.org>",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {},
   "repository": {
     "type": "git",
