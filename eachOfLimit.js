@@ -1,6 +1,6 @@
 "use strict";
 
-var eachLimit = require('./eachLimit');
+const eachLimit = require('./eachLimit');
 
 module.exports = function *(series, n, thunk){
 

@@ -10,7 +10,6 @@
   "author": "Francois Leurent <131.js@cloudyks.org>",
   "license": "ISC",
   "dependencies": {
-    "co-thread": "0.0.1"
   },
   "devDependencies": {},
   "repository": {

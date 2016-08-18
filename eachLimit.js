@@ -1,20 +1,28 @@
 "use strict";
 
-var thread = require('co-thread');
 
-module.exports = function *(series, n, thunk){
+module.exports = function *(series, n, thunk) {
   var n = Math.min(n || 5, series.length);
-  var ret = [];
-  var index = 0;
 
-  function *next() {
-    var i = index++;
+  let ret = [];
+  let index = 0;
+
+
+  let next = function *() {
+    if (index >= series.length)
+      return;
+
+    let i = index++;
     ret[i] = yield thunk(series[i]);
 
-    if (index < series.length) yield next;
+    yield next; //continue in lane
   }
 
-  yield thread(next, n);
+  let lanes = [];
+  while (n--)
+    lanes.push(next);
+
+  yield lanes;
 
   return ret;
 };
