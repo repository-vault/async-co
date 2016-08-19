@@ -1,19 +1,34 @@
-Control flow for co with aync.js (v2) signatures
+Control flow for ES6 generator (co) with async.js (v2) signatures
+
+# Motivation
+async-co provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
+
+
+## Addition to the async library signatures
+Because of the Promise contract (and sane API), it's easy to "throttle" a function that return a Promise (see the "throttle" API, for a way to make an ultra simple http request pooling).
+
 
 # API
 
-## eachLimit(arr, concurrency, *thunk)
-## eachSeries(arr, *thunk) // = eachLimit concurrency = 1
-## each(arr, *thunk)       // = eachLimit concurrency = arr.length
+## async-co/eachLimit(arr, concurrency, *thunk)
+Nothing special here
+## async-co/eachSeries(arr, *thunk)
+// = eachLimit concurrency = 1
+## async-co/each(arr, *thunk)
+// = eachLimit concurrency = arr.length
 
-## eachOfLimit (dict, concurrency, *thunk)
-## eachOfSeries(dict, *thunk) // = eachOfLimit concurrency = 1
-## eachOf(dict, *thunk)       // = eachOfLimit concurrency = dict.length
-## 
+## async-co/eachOfLimit (dict, concurrency, *thunk)
+Nothing special here neither
+
+## async-co/eachOfSeries(dict, *thunk)
+ // = eachOfLimit concurrency = 1
+
+## async-co/eachOf(dict, *thunk)
+// = eachOfLimit concurrency = dict.length
 
 
 ```
-var eachLimit    = require('async-co/eachLimit');
+const eachLimit    = require('async-co/eachLimit');
 
 co(function *() {
 
@@ -24,8 +39,61 @@ co(function *() {
   });
 
 });
+```
+
+## q = async-co/queue(*thunk, concurrency)
+Return a QueueObject you can push task into.
+### yield q.push(task)
+Wait for thunk to process task (wait for worker, if needed)
+
+```
+const queue    = require('async-co/queue');
+const fetch    = require('node-fetch');
+
+var q = queue(fetch, 1); //let's be nice
+
+co(function *() {
+  yield q.push("http://example.com/stuff.json");
+});
+
+co(function *() {
+  yield q.push("http://example.com/otherstuff.json"); //will wait for stuff to be retrieved
+});
+```
+
+## async-co/throttle
+Throttle any function that return a promise, sugar syntax helper for async-co/queue
 
 
 ```
+const throttle = require('async-co/throttle');
+var  fetch     = require('node-fetch');
+fetch = throttle(fetch, 1); //make fetch behave nicely
 
-## eachSeries(arr, *thunk) 
+co(function *() {
+  yield fetch("http://example.com/stuff.json");
+});
+
+co(function *() {
+  yield fetch("http://example.com/otherstuff.json"); //will wait for stuff.json to be retrieved
+});
+```
+
+
+
+# TODO
+* Get rich or die tryin'
+
+# Credits
+
+* [131](https://github.com/131)
+* not dependant upon, yet relying on [co](https://github.com/tj/co)
+* inspired from the excellent [async](https://github.com/caolan/async)
+
+
+
+# Shoutbox, keywords, SEO love
+async/await, ES6 generators, co, async-co, promise, Promises, yield, async, queue, map, throttle, "Let's have a beer & talk in Paris"
+
+
+
