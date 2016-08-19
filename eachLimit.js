@@ -4,11 +4,11 @@
 module.exports = function *(series, n, thunk) {
   var n = Math.min(n || 5, series.length);
 
-  let ret = [];
-  let index = 0;
+  var ret = [];
+  var index = 0;
 
 
-  let next = function *() {
+  var next = function *() {
     if (index >= series.length)
       return;
 
@@ -18,7 +18,7 @@ module.exports = function *(series, n, thunk) {
     yield next; //continue in lane
   }
 
-  let lanes = [];
+  var lanes = [];
   while (n--)
     lanes.push(next);
 
