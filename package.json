@@ -1,6 +1,6 @@
 {
   "name": "async-co",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "Control flow for co with aync.js (v2) signatures",
   "main": "index.js",
   "scripts": {
