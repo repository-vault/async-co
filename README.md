@@ -1,9 +1,9 @@
 Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https://github.com/tj/co)) with async.js (v2) signatures
 
 # Motivation
-[async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
+[async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library.
 
-Thanks to co async/await & promises contract, code tend to be small & very efficient (far more simplier than using callbacks), just give [async-co/queue.js](https://github.com/131/async-co/blob/master/queue.js) a look
+**async-co** is not a wrapper on **async**, but rather leverages the full potential of native async/await & promises contract. Code tend to be small & very efficient (far more simplier than using callbacks), just give [async-co/queue.js](https://github.com/131/async-co/blob/master/queue.js) a look
 
 
 ## Addition to the async library signatures / promise pooling
@@ -93,6 +93,7 @@ co(function *() {
 
 ## Alternatives / relatives
 * [koa-async](https://github.com/eladnava/koa-async) ; a clever Promisify wrapper on top of async (but  not leveraging the full potential of ES7 async/await capabilities)
+* [caolan/async/asyncify.js](https://github.com/caolan/async/blob/master/lib/asyncify.js) goes the same as koa-async.
 * [es6-promise-pool](https://github.com/timdp/es6-promise-pool) ; equivalent to async-co/queue, with a different API
 
 
