@@ -3,9 +3,11 @@ Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https:/
 # Motivation
 [async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
 
+Thanks to co async/await & promises contract, code tend to be small & very efficient (far more simplier than using callbacks), just give [async-co/queue.js](https://github.com/131/async-co/blob/master/queue.js) a look
 
-## Addition to the async library signatures
-Because of the Promise contract (and sane API), it's easy to "throttle" a function that return a Promise (see the "throttle" API, for a way to make an ultra simple http request pooling).
+
+## Addition to the async library signatures / promise pooling
+Per design, it's easy to "throttle" a function that return a Promise ; checkout the "throttle" API for a way to make an ultra simple http request pooling.
 
 
 # API
@@ -85,10 +87,13 @@ co(function *() {
 * Get rich or die tryin'
 
 # Credits
-
 * [131](https://github.com/131)
 * not dependant upon, yet relying on [co](https://github.com/tj/co)
 * inspired from the excellent [async](https://github.com/caolan/async)
+
+## Alternatives / relatives
+* [koa-async](https://github.com/eladnava/koa-async) ; a clever Promisify wrapper on top of async (but  not leveraging the full potential of ES7 async/await capabilities)
+* [es6-promise-pool](https://github.com/timdp/es6-promise-pool) ; equivalent to async-co/queue, with a different API
 
 
 
