@@ -6,7 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "async",
+    "co",
+    "await",
+    "ES6 generators",
+    "yield",
+    "throttle",
+    "pool",
+    "concurrency",
+    "promise",
+    "promises",
+    "queue",
+    "deferred",
+    "map",
+    "Let's have a beer and talk in Paris"
+  ],
   "author": "Francois Leurent <131.js@cloudyks.org>",
   "license": "ISC",
   "dependencies": {},
