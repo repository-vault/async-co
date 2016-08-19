@@ -1,7 +1,7 @@
 {
   "name": "async-co",
   "version": "1.0.0",
-  "description": "Control flow for co with aync.js (v2) signatures",
+  "description": "Control flow for co with async.js (v2) signatures",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
