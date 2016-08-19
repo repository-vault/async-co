@@ -1,7 +1,7 @@
 Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https://github.com/tj/co)) with async.js (v2) signatures
 
 # Motivation
-async-co provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
+[async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
 
 
 ## Addition to the async library signatures
