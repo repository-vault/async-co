@@ -5,11 +5,6 @@
 module.exports = function(thunk, workers){
   var workerChain = [];
 
-  var push = function * (task) {
-    var delayed = yield process(task);
-    return delayed;
-  }
-
   var process = function *(task) {
     yield pickworker();
       var ret = yield thunk.apply(this, task);
@@ -31,5 +26,7 @@ module.exports = function(thunk, workers){
       workerChain.shift()(pickworker());
   }
 
-  return { push };
+  var out  = process;  // better candidate than {}
+  out.push = process; // per compatibility
+  return out;
 }
