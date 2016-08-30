@@ -85,6 +85,7 @@ co(function *() {
 
 # TODO
 * Get rich or die tryin'
+* write a working async-co/cargo (see [the challenge on stackoverflow](http://stackoverflow.com/questions/39069624))
 
 # Credits
 * [131](https://github.com/131)
