@@ -12,20 +12,20 @@ Per design, it's easy to "throttle" a function that return a Promise ; checkout 
 
 # API
 
-## async-co/eachLimit(arr, concurrency, *thunk)
+## async-co/eachLimit(arr, concurrency, *thunk [, thisobj])
 Nothing special here
-## async-co/eachSeries(arr, *thunk)
+## async-co/eachSeries(arr, *thunk [, thisobj] )
 // = eachLimit concurrency = 1
-## async-co/each(arr, *thunk)
+## async-co/each(arr, *thunk [, thisobj])
 // = eachLimit concurrency = arr.length
 
-## async-co/eachOfLimit (dict, concurrency, *thunk)
+## async-co/eachOfLimit (dict, concurrency, *thunk [, thisobj])
 Nothing special here neither
 
-## async-co/eachOfSeries(dict, *thunk)
+## async-co/eachOfSeries(dict, *thunk [, thisobj])
  // = eachOfLimit concurrency = 1
 
-## async-co/eachOf(dict, *thunk)
+## async-co/eachOf(dict, *thunk [, thisobj])
 // = eachOfLimit concurrency = dict.length
 
 

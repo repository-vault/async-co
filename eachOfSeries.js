@@ -3,7 +3,7 @@
 const eachOfLimit = require('./eachOfLimit');
 
   //what did you expect..
-module.exports = function (series, thunk){
-  return eachOfLimit(series, 1, thunk);
+module.exports = function (series, thunk, ctx){
+  return eachOfLimit(series, 1, thunk, ctx);
 };
 

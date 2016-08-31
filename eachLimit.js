@@ -1,7 +1,7 @@
 "use strict";
 
 
-module.exports = function *(series, n, thunk) {
+module.exports = function *(series, n, thunk, ctx) {
   var n = Math.min(n || 5, series.length);
 
   var ret = [];
@@ -13,7 +13,7 @@ module.exports = function *(series, n, thunk) {
       return;
 
     let i = index++;
-    ret[i] = yield thunk(series[i]);
+    ret[i] = yield thunk.call(ctx || this, series[i]);
 
     yield next; //continue in lane
   }
