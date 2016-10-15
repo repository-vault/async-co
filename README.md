@@ -1,7 +1,16 @@
 Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https://github.com/tj/co)) with async.js (v2) signatures
 
 # Motivation
-[async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library.
+[async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
+
+
+Module are exported in standard commonJS module format and written in pure ES5/ES6 strict format. (no transpilation required nor used).
+Use browserify if you need async-co modules in a browser environnement.
+
+[![Build Status](https://travis-ci.org/131/async-co.svg?branch=master)](https://travis-ci.org/131/async-co)
+[![Coverage Status](https://coveralls.io/repos/github/131/async-co/badge.svg?branch=master)](https://coveralls.io/github/131/async-co?branch=master)
+[![Version](https://img.shields.io/npm/v/async-co.svg)](https://www.npmjs.com/package/async-co)
+
 
 **async-co** is not a wrapper on **async**, but rather leverages the full potential of native async/await & promises contract. Code tend to be small & very efficient (far more simplier than using callbacks), just give [async-co/queue.js](https://github.com/131/async-co/blob/master/queue.js) a look
 
@@ -43,6 +52,10 @@ co(function *() {
 });
 ```
 
+## async-co/setImmediate(fn)
+Call a function in javascript next tick (using setImmediate API, or timeout 0 pollyfill)
+
+
 ## q = async-co/queue(*thunk, concurrency)
 Return a QueueObject you can push task into.
 ### yield q.push(task)
@@ -80,7 +93,8 @@ co(function *() {
   yield fetch("http://example.com/otherstuff.json"); //will wait for stuff.json to be retrieved
 });
 ```
-
+# Tests
+async-co is tested against async test suite.
 
 
 # TODO

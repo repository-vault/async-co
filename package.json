@@ -4,7 +4,9 @@
   "description": "Control flow for co with async.js (v2) signatures",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mocha": "node node_modules/mocha/bin/_mocha -r mocha-plugin-co",
+    "test": "node node_modules/istanbul/lib/cli.js cover --report text-summary --report html --report lcov  node_modules/mocha/bin/_mocha -- -r mocha-plugin-co",
+    "coveralls": "npm install coveralls && node ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info"
   },
   "keywords": [
     "async",
@@ -25,7 +27,13 @@
   "author": "Francois Leurent <131.js@cloudyks.org>",
   "license": "ISC",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.3.20",
+    "mocha": "^3.1.2",
+    "mocha-plugin-co": "^1.0.0",
+    "nyks": "^3.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/131/async-co.git"
