@@ -6,7 +6,7 @@ module.exports = function(thunk, limit){
   var q = queue(thunk, limit);
 
   return function () {
-    return q([].slice.apply(arguments));
+    return q.apply(q, arguments);
   };
 
 }

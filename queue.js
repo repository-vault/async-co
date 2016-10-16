@@ -7,7 +7,7 @@ module.exports = function(thunk, workers){
 
   var process = function *(task) {
     yield pickworker();
-      var ret = yield thunk.apply(this, task);
+      var ret = yield thunk.call(this, task);
     freeworker();
     return Promise.resolve(ret);
   }
