@@ -19,6 +19,7 @@ describe("each", function() {
   function * eachIteratee(args, x) {
     yield sleep(x * 25);
     args.push(x);
+    return x;
   }
 
   function eachNoCallbackIteratee(done, x, callback) {
@@ -31,6 +32,15 @@ describe("each", function() {
     var args = [];
     yield each([1,3,2], eachIteratee.bind(this, args));
     expect(args).to.eql([1,2,3]);
+  });
+
+  it('each with object', function* () {
+    var args = [];
+    var result = yield each({"firstKey" : 2, "secondtKey" : 1}, function*(x){
+      yield sleep(x * 25)
+      return x * 2;
+    })
+    expect(result).to.eql({"firstKey" : 4, "secondtKey" : 2});
   });
 
 

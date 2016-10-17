@@ -3,9 +3,10 @@
 const eachLimit = require('./eachLimit');
 
 module.exports = function *(series, n, thunk, ctx){
-
+  var res = {};
   yield eachLimit(Object.keys(series), n, function* (k){
-    yield thunk(series[k], k);
+    res[k] = yield thunk(series[k], k);
   }, ctx);
+  return Promise.resolve(res);
 };
 
