@@ -1,5 +1,12 @@
 Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https://github.com/tj/co)) with async.js (v2) signatures
 
+
+[![Build Status](https://travis-ci.org/131/async-co.svg?branch=master)](https://travis-ci.org/131/async-co)
+[![Coverage Status](https://coveralls.io/repos/github/131/async-co/badge.svg?branch=master)](https://coveralls.io/github/131/async-co?branch=master)
+[![Version](https://img.shields.io/npm/v/async-co.svg)](https://www.npmjs.com/package/async-co)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+
+
 # Motivation
 [async-co](https://github.com/131/async-co) provide javascript async/await (through ES6 generator & co) equivalent signatures of the excellent [async](https://github.com/caolan/async) workflow library. 
 
@@ -7,17 +14,14 @@ Control flow ala ES7 async/await using  ES6 generator (thanks to [tj/co](https:/
 Module are exported in standard commonJS module format and written in pure ES5/ES6 strict format. (no transpilation required nor used).
 Use browserify if you need async-co modules in a browser environnement.
 
-[![Build Status](https://travis-ci.org/131/async-co.svg?branch=master)](https://travis-ci.org/131/async-co)
-[![Coverage Status](https://coveralls.io/repos/github/131/async-co/badge.svg?branch=master)](https://coveralls.io/github/131/async-co?branch=master)
-[![Version](https://img.shields.io/npm/v/async-co.svg)](https://www.npmjs.com/package/async-co)
-
 
 **async-co** is not a wrapper on **async**, but rather leverages the full potential of native async/await & promises contract. Code tend to be small & very efficient (far more simplier than using callbacks), just give [async-co/queue.js](https://github.com/131/async-co/blob/master/queue.js) a look
 
 
 ## Addition to the async library signatures / promise pooling
-Per design, it's easy to "throttle" a function that return a Promise ; checkout the "throttle" API for a way to make an ultra simple http request pooling.
-
+* Generator cannot use arrow function binding style, yet it might be usefull to bind async-co closure, therefore, you can use an extra optional args to all signature to set generator binding context. (i.e. as in native [.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) )
+* Per design, it's easy to "throttle" a function that return a Promise ; checkout the "throttle" API for a way to make an ultra simple http request pooling.
+* async logic allow async/each to iterate through array AND objects. Per design sanify, async-co does not. Use each/eachLimit/eachSeries for array, eachOf/eachOfLimit/eachOfSeries for collections.
 
 # API
 

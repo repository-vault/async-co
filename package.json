@@ -26,14 +26,13 @@
   ],
   "author": "Francois Leurent <131.js@cloudyks.org>",
   "license": "ISC",
-  "dependencies": {
-    "mout": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "expect.js": "^0.3.1",
     "istanbul": "^0.3.20",
     "mocha": "^3.1.2",
     "mocha-plugin-co": "^1.0.0",
+    "mout": "^1.0.0",
     "nyks": "^3.1.1"
   },
   "repository": {

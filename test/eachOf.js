@@ -3,6 +3,7 @@
 const assert = require('assert');
 const expect = require('expect.js');
 const sleep  = require('nyks/function/sleep');
+const format = require('nyks/string/format');
 
 const eachOf = require('../eachOf');
 const eachOfSeries = require('../eachOfSeries');
@@ -21,6 +22,7 @@ describe("eachOf", function() {
   function * eachOfIteratee(args, value, key) {
     args.push(key, value);
     yield sleep(value*25);
+   return format("%s-%s", key, value);
   }
 
 
@@ -95,8 +97,9 @@ describe("eachOf", function() {
 
   it('eachOfSeries', function *() {
     var args = [];
-    yield eachOfSeries({ a: 1, b: 2 }, eachOfIteratee.bind(this, args));
+    var res = yield eachOfSeries({ a: 1, b: 2 }, eachOfIteratee.bind(this, args));
     expect(args).to.eql([ "a", 1, "b", 2 ]);
+    expect(res).to.eql({ 'a': 'a-1', 'b': 'b-2' });
   });
 
   it('eachOfSeries empty object', function *() {
