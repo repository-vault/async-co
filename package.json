@@ -1,19 +1,17 @@
 {
-  "name": "async-co",
+  "name": "async-aa",
   "version": "1.5.0",
-  "description": "Control flow for co with async.js (v2) signatures",
+  "description": "ES7 control flow  with async.js (v2) signatures",
   "main": "index.js",
   "scripts": {
-    "mocha": "node node_modules/mocha/bin/_mocha -r mocha-plugin-co",
-    "test": "node node_modules/istanbul/lib/cli.js cover --report text-summary --report html --report lcov  node_modules/mocha/bin/_mocha -- -r mocha-plugin-co",
-    "coveralls": "npm install coveralls && node ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info"
+    "coveralls": "npm install coveralls && node ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info",
+    "discify": "browserify -node -p discify index.js | discify-reporter --source=disc/graph.json",
+    "mocha": "node node_modules/mocha/bin/_mocha -r mocha-plugin-aa",
+    "test": "node node_modules/istanbul/lib/cli.js cover --report text-summary --report html --report lcov  node_modules/mocha/bin/_mocha -- -r mocha-plugin-aa"
   },
   "keywords": [
     "async",
-    "co",
     "await",
-    "ES6 generators",
-    "yield",
     "throttle",
     "pool",
     "concurrency",
@@ -31,7 +29,7 @@
     "expect.js": "^0.3.1",
     "istanbul": "^0.3.20",
     "mocha": "^3.1.2",
-    "mocha-plugin-co": "^1.0.0",
+    "mocha-plugin-aa": "^1.0.0",
     "mout": "^1.0.0",
     "nyks": "^3.1.1"
   },
