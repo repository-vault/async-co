@@ -19,7 +19,7 @@ module.exports = function *(series, n, thunk, ctx) {
     yield new Promise(setImmediate);
 
     try { //stop replenishing after error
-      ret[i] = yield thunk.call(ctx || this, series[i]);
+      ret[i] = yield thunk.call(ctx || this, series[i], i);
     } catch(err) {
       cancel = true;
       throw err;
