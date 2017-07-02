@@ -137,10 +137,10 @@ describe("eachOf", function() {
 
     yield eachOfLimit(obj, 2, function* (value, key){
       yield sleep(value * 5);
-      args.push(value, key);
-    });
+      args.push(value * this.b, key);
+    }, obj);
 
-    expect(args).to.eql([ 1, "a", 2, "b", 3, "c", 4, "d" ]);
+    expect(args).to.eql([ 2, "a", 4, "b", 6, "c", 8, "d" ]);
   });
 
 
